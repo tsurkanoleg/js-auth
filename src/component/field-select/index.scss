@@ -2,100 +2,101 @@
 @use '../field/index.scss' as field;
 
 .field--select {
-	.field__select {
-		border: 1px solid s.color('box');
-		background: s.color('box');
-		padding: s.space(4);
-		border-radius: 10px;
+  .field__select {
+    border: 1px solid s.color('box');
+    background: s.color('box');
+    padding: s.space(4);
+    border-radius: 10px;
 
-		display: flex;
-		gap: s.space(2);
-		align-items: center;
+    display: flex;
+    gap: s.space(2);
+    align-items: center;
 
-		cursor: pointer;
-		transition: border-color 0.3s;
+    cursor: pointer;
+    transition: border-color 0.3s;
 
-		position: relative;
-	}
+    position: relative;
+  }
 
-	.field__value {
-		font-size: 14px;
-		color: s.color(dark);
-		
-		&--placeholder {
-			color: s.color(light);
-		}
-	}
+  .field__value {
+    font-size: 14px;
+    color: s.color(dark);
 
-	.field__container {
-		display: grid;
-		position: relative;
+    &--placeholder {
+      color: s.color(light);
+    }
+  }
 
-		&:hover {
-			.field__select {
-				border-color: s.color(gray);
-			}
-		}
-	}
+  .field__container {
+    display: grid;
+    position: relative;
+  }
 
-	.field__label--select {
-		font-size: 16px;
-		color: s.color("dark");
-	}
+  .field__container:hover {
+    .field__select {
+      border-color: s.color(gray);
+    }
+  }
 
-	.field__icon {
-		display: block;
-		height: 20px;
-		width: 20px;
+  .field__label--select {
+    font-size: 16px;
+    color: s.color('dark');
+  }
 
-		background-image: url('/svg/select.svg');
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center center;
+  .field__icon {
+    display: block;
+    height: 20px;
+    width: 20px;
 
-		position: absolute;
-		right: s.space(4);
-		top: calc(50% - 10px);
-	}
+    background-image: url('/svg/select.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
 
-	.field__option--list {
-		padding: s.space(4);
-		display: none;
-		border: 1px solid s.color('box');
-		border-radius: 10px;
-		overflow: scroll;
-		background: s.color('background');
-		max-height: 160px;
-		z-index: 1;
+    position: absolute;
+    right: s.space(4);
+    top: calc(50% - 10px);
+  }
 
-		.field__option {
-			@include s.click();
+  .field__option--list {
+    padding: s.space(4);
+    display: none;
+    border: 1px solid s.color('box');
+    border-radius: 10px;
+    overflow: scroll;
+    background: s.color('background');
+    max-height: 160px;
+    z-index: 1;
 
-			&:not(:last-of-type) {
-				padding-bottom: s.space(4);
-			}
+    .field__option {
+      @include s.click();
 
-			transition: color 0.3s;
+      &:not(:last-of-type) {
+        padding-bottom: s.space(4);
+      }
 
-			&[active] {
-				color: s.color('main');
+      transition: color 0.3s;
 
-				&:hover {
-					opacity: 1;
-				}
-			}
-		}
+      &[active] {
+        color: s.color('main');
 
-		&[active] {
-			display: block;
-		}
-		position: absolute;
-		top: 100%;
-		right: 0px;
-		width: 100%;
-	}
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
 
-	.field__input--disabled {
-		display: none;
-	}
+    &[active] {
+      display: block;
+    }
+
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    width: 100%;
+  }
+
+  .field__input--disabled {
+    display: none;
+  }
 }

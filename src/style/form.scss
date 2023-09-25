@@ -47,33 +47,34 @@
 }
 
 .alert {
-	border: 1px solid transparent;
-	border-radius: 10px;
-	padding: s.space(3) s.space(4);
-	font-size: 14px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: s.space(3) s.space(4);
+  font-size: 14px;
 
-	&--success {
-		border-color: s.color(green);
-		color: s.color(green);
-	}
+  &--success {
+    border-color: s.color(green);
+    color: s.color(green);
+  }
 
-	&--error {
-		border-color: s.color(red);
-		color: s.color(red);
-	}
+  &--error {
+    border-color: s.color(red);
+    color: s.color(red);
+  }
 
-	&--progress {
-		border-color: s.color(blue);
-		color: s.color(blue);
-	}
+  &--progress {
+    border-color: s.color(blue);
+    color: s.color(blue);
+  }
 
-	&--disabled {
-		display: none;
-	}
+  &--disabled {
+    display: none;
+  }
 }
 
-.validation {			
-	&--active {
-		border-color: s.color(red) !important;
-	}
+
+.validation {
+  &--active {
+    border-color: s.color(red) !important;
+  }
 }

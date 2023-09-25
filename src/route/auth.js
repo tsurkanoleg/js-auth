@@ -6,19 +6,19 @@ const router = express.Router()
 const { User } = require('../class/user')
 
 User.create({
-	email: 'test1@mail.com',
+	email: 'user1@mail.com',
 	password: 1234567,
 	role: 1,
 })
 
 User.create({
-	email: 'test2@mail.com',
+	email: 'admin@mail.com',
 	password: 2345678,
 	role: 2,
 })
 
 User.create({
-	email: 'test3@mail.com',
+	email: 'developer3@mail.com',
 	password: 3456789,
 	role: 3,
 })
@@ -75,7 +75,7 @@ router.post('/signup', function(req, res) {
 
 	if(!email || !password || !role) {
 		return res.status(400).json({
-			message: "Помилкаю Обов'язкові поля відсутні",
+			message: "Помилка. Обов'язкові поля відсутні",
 		})
 	}
 
