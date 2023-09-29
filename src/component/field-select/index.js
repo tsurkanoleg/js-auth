@@ -20,29 +20,29 @@ class FieldSelect {
     const parent = target.parentElement.parentElement
     const list = target.parentElement
 
-		// -----------------------------
+    // ===
 
-	  const active = list.querySelector('*[active]')
+    const active = list.querySelector('*[active]')
 
     if (active) active.toggleAttribute('active')
 
-		// =
+    // ===
 
-		target.toggleAttribute('active')
+    target.toggleAttribute('active')
 
-		// ==		
-		
+    // ===
+
     const value = parent.querySelector('.field__value')
 
     if (value) {
       value.innerText = target.innerText
       value.classList.remove('field__value--placeholder')
     }
-		
-		// ===
 
-		list.toggleAttribute('active')
-	}
+    // ===
+
+    list.toggleAttribute('active')
+  }
 }
 
 window.fieldSelect = FieldSelect

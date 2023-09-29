@@ -14,7 +14,7 @@ class Confirm {
 
     setTimeout(() => {
       this.delete(code)
-    }, 24 * 60 * 60 * 1000) 
+    }, 24 * 60 * 60 * 1000) // 24 години у мілісекундах
 
     console.log(this.#list)
   }

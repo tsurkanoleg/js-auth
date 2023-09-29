@@ -7,12 +7,12 @@ export const REG_EXP_PASSWORD = new RegExp(
 )
 
 export class Form {
-	FIELD_NAME = {}
-	FIELD_ERROR = {}
+  FIELD_NAME = {}
+  FIELD_ERROR = {}
 
-	value = {}
-	error = {}
-	disabled = true
+  value = {}
+  error = {}
+  disabled = true
 
   change = (name, value) => {
     const error = this.validate(name, value)
@@ -54,7 +54,7 @@ export class Form {
     }
   }
 
-	checkDisabled = () => {
+  checkDisabled = () => {
     let disabled = false
 
     Object.values(this.FIELD_NAME).forEach((name) => {

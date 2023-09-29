@@ -4,7 +4,7 @@ import {
   REG_EXP_PASSWORD,
 } from '../../script/form'
 
-
+import { saveSession } from '../../script/session'
 
 class SignupForm extends Form {
   FIELD_NAME = {
@@ -27,12 +27,12 @@ class SignupForm extends Form {
     ROLE: 'Ви не обрали роль',
   }
 
-	validate = (name, value) => {
+  validate = (name, value) => {
     if (String(value).length < 1) {
       return this.FIELD_ERROR.IS_EMPTY
     }
 
-		if (String(value).length > 20) {
+    if (String(value).length > 20) {
       return this.FIELD_ERROR.IS_BIG
     }
 
@@ -48,7 +48,7 @@ class SignupForm extends Form {
       }
     }
 
-		if (name === this.FIELD_NAME.PASSWORD_AGAIN) {
+    if (name === this.FIELD_NAME.PASSWORD_AGAIN) {
       if (
         String(value) !==
         this.value[this.FIELD_NAME.PASSWORD]
@@ -57,20 +57,20 @@ class SignupForm extends Form {
       }
     }
 
-		if (name === this.FIELD_NAME.ROLE) {
+    if (name === this.FIELD_NAME.ROLE) {
       if (isNaN(value)) {
         return this.FIELD_ERROR.ROLE
       }
     }
 
-		if (name === this.FIELD_NAME.IS_CONFIRM) {
+    if (name === this.FIELD_NAME.IS_CONFIRM) {
       if (Boolean(value) !== true) {
         return this.FIELD_ERROR.NOT_CONFIRM
       }
     }
-	}
+  }
 
-	submit = async () => {
+  submit = async () => {
     if (this.disabled === true) {
       this.validateAll()
     } else {
@@ -78,7 +78,7 @@ class SignupForm extends Form {
 
       this.setAlert('progress', 'Завантаження...')
 
-			try {
+      try {
         const res = await fetch('/signup', {
           method: 'POST',
           headers: {
@@ -91,9 +91,9 @@ class SignupForm extends Form {
 
         if (res.ok) {
           this.setAlert('success', data.message)
-
-
-				} else {
+          saveSession(data.session)
+          location.assign('/')
+        } else {
           this.setAlert('error', data.message)
         }
       } catch (error) {
@@ -102,7 +102,7 @@ class SignupForm extends Form {
     }
   }
 
-	convertData = () => {
+  convertData = () => {
     return JSON.stringify({
       [this.FIELD_NAME.EMAIL]:
         this.value[this.FIELD_NAME.EMAIL],
